@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aktivitas | Komunitas IT SMKN 1 Nglegok</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      header {
+        background-color: #90c5f0;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 3px solid #000;
+      }
+      .logo-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo-title img {
+        height: 50px;
+      }
+      .nav {
+        display: flex;
+        gap: 20px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .nav a {
+        text-decoration: none;
+        color: black;
+        border-left: 2px solid black;
+        padding-left: 10px;
+      }
+      .nav a:first-child {
+        border-left: none;
+      }
+      .nav a.active {
+        color: #004aad;
+      }
+      main {
+        padding: 20px;
+        background-image: url("aktivitas.png");
+        background-size: cover;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .card {
+        background-color: #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .popup-content img {
+        width: 30%;
+        margin: 5px;
+        border-radius: 8px;
+      }
+      footer {
+        background-color: #90c5f0;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        color: #000;
+      }
+      footer .left,
+      footer .right {
+        flex: 1;
+        min-width: 300px;
+      }
+    footer p img {
+        height: 30px;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+      .footer-logo-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .footer-logo-title img {
+        height: 50px;
+      }
+      .social-icons a {
+        margin-right: 10px;
+        font-size: 24px;
+        text-decoration: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 10px;
+        border-top: 1px solid black;
+        padding-top: 10px;
+      }
+
+      .social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 30px;    /* Ukuran ikon kecil */
+  height: 30px;   /* Ukuran ikon kecil */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1); /* Efek membesar saat hover */
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-title">
+        <img src="images/logo kits.png" alt="Logo KITS" />
+        <div>
+          <strong>Komunitas IT</strong><br />
+          <span style="color: grey; font-weight: bold"
+            >SMK NEGERI 1 NGLEGOK</span
+          >
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index (1).html">Home</a>
+        <a href="aktivitas.html" class="active">Aktivitas</a>
+        <a href="achivement (1).html">Achievement</a>
+        <a href="project.html">Project</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="grid">
+        <!-- Kartu Aktivitas -->
+        <div class="card" onclick="showPopup('Extra Rutin Hari Sabtu')">
+          <img src="images/ekstra.jpg" />
+          <div>Extra Rutin Hari Sabtu</div>
+        </div>
+        <div class="card" onclick="showPopup('Keagamaan')">
+          <img src="images/jumat.jpg" />
+          <div>Keagamaan</div>
+        </div>
+        <div class="card" onclick="showPopup('Rapat Proker')">
+          <img src="images/rapat.jpg" />
+          <div>Rapat Proker</div>
+        </div>
+        <div class="card" onclick="showPopup('Invention')">
+          <img src="images/ivention.JPG" />
+          <div>Invention</div>
+        </div>
+        <div class="card" onclick="showPopup('Diklat')">
+          <img src="images/diklat.JPG" />
+          <div>Diklat</div>
+        </div>
+        <div class="card" onclick="showPopup('Outbound')">
+          <img src="images/outbound.png" />
+          <div>Outbound</div>
+        </div>
+        <div class="card" onclick="showPopup('Bootcamp')">
+          <img src="images/bootcamp.jpeg" alt="Bootcamp" />
+          <div>Bootcamp</div>
+        </div>
+        <div class="card" onclick="showPopup('Uji Kenaikan Tingkat')">
+          <img src="images/ukt.jpg" alt="UKT" />
+          <div>Uji Kenaikan Tingkat</div>
+        </div>
+        <div class="card" onclick="showPopup('Anjangsana')">
+          <img src="images/anjangsana.jpeg" />
+          <div>Anjangsana</div>
+        </div>
+      </div>
+    </main>
+
+    <div id="popup" class="popup" onclick="closePopup()">
+      <div class="popup-content" onclick="event.stopPropagation()">
+        <h3 id="popup-title"></h3>
+        <div id="popup-gallery"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="left">
+        <div class="footer-logo-title">
+          <img src="images/logo kits.png" alt="Logo KITS" />
+          <div>
+            <strong>Komunitas IT</strong><br />
+            <span style="color: grey; font-weight: bold"
+              >SMK NEGERI 1 NGLEGOK</span
+            >
+          </div>
+        </div>
+        <p><strong style="color: #004aad">Asta Marga KITS</strong></p>
+        <ol>
+          <li>Religius</li>
+          <li>Mandiri</li>
+          <li>Beretika</li>
+          <li>Kreatif</li>
+          <li>Inovatif</li>
+          <li>Bekerja Keras</li>
+          <li>Bertanggung Jawab</li>
+          <li>Bermanfaat</li>
+        </ol>
+      </div>
+      <div class="right">
+            <p><img src="images/maps-removebg-preview.png"> Jl. Penataran No. 1 Kel. Nglegok Kec. Nglegok Kab. Blitar</p>
+            <p><img src="images/email-removebg-preview.png">kitsangkatan.13@gmail.com</a></p>
+        <div class="social-icons">
+  <a href="https://tiktok.com" target="_blank">
+    <img src="images/tt.png" alt="TikTok" />
+  </a>
+  <a href="https://youtube.com" target="_blank">
+    <img src="images/yt-removebg-preview.png" alt="YouTube" />
+  </a>
+  <a href="https://instagram.com" target="_blank">
+    <img src="images/ig.png" alt="Instagram" />
+  </a>
+</div>
+
+      <div class="footer-bottom">
+        Copyright © 2025 Kelompok 5 | All Rights Reserved
+      </div>
+    </footer>
+
+  <script>
+  const imageMap = {
+    "Extra Rutin Hari Sabtu": [
+      "images/ekstra.jpg",
+      "images/ekstra2.jpg",
+      "images/ekstra3.jpg",
+      "images/apel.jpg",
+      
+    ],
+    Keagamaan: [
+      "images/jumat.jpg",
+      "images/jumat2.jpg",
+      "images/jumat3.jpg",
+    
+    ],
+    "Rapat Proker": [
+      "images/rapat.jpg",
+      "images/rapat2.jpg",
+      "images/rapat3.jpg",
+      
+    ],
+    Invention: [
+      "images/ivention1.JPG",
+      "images/ivention2.JPG",
+      "images/ivention3.JPG",
+  
+    ],
+    Diklat: [
+      "images/d1.jpg",
+      "images/d2.jpg",
+      "images/d3.jpg",
+      
+    ],
+    Outbound: [
+      "images/outbound.png",
+      "images/outbound2.jpg",
+      "images/o3.jpg",
+     
+    ],
+    Bootcamp: [
+      "images/b1.jpg",
+      "images/b2.jpg",
+      "images/b3.jpg",
+     
+    ],
+    "Uji Kenaikan Tingkat": [
+      "images/ukt1.jpg",
+      "images/ukt2.jpg",
+      "images/ukt3.jpg",
+      
+    ],
+    Anjangsana: [
+      "images/a1.jpg",
+      "images/a2.jpg",
+      "images/a3.jpg",
+      
+    ],
+  };
+
+  function showPopup(activityName) {
+    const popup = document.getElementById("popup");
+    const title = document.getElementById("popup-title");
+    const gallery = document.getElementById("popup-gallery");
+
+    title.innerText = activityName;
+    gallery.innerHTML = "";
+
+    const images = imageMap[activityName] || [];
+    images.forEach((src) => {
+      const img = document.createElement("img");
+      img.src = `${src}`;
+      img.alt = activityName;
+      gallery.appendChild(img);
+    });
+
+    popup.style.display = "flex";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+  </body>
+</html>

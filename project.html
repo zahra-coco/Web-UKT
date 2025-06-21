@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Komunitas IT - SMK Negeri 1 Nglegok</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    /* HEADER */
+    header {
+        background-color: #90c5f0;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 25px;
+    }
+
+    .logo-title img {
+        height: 70px;
+    }
+
+    .nav {
+        display: flex;
+        gap: 20px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: black;
+        border-left: 2px solid black;
+        padding-left: 10px;
+    }
+
+    .nav a:first-child {
+        border-left: none;
+    }
+
+    .nav a.active {
+        color: #004aad;
+    }
+
+    /* GALLERY */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 3 kolom */
+        gap: 20px;
+        padding: 40px;
+        justify-items: center;
+    }
+
+    .card {
+        width: 250px;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .card img {
+        width: 100%;
+        display: block;
+        transition: filter 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 128, 255, 0.4);
+    }
+
+    .card:hover img {
+        filter: brightness(1.1) drop-shadow(0 0 10px rgba(0, 123, 255, 0.6));
+    }
+
+    .card p {
+        margin: 10px 0;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* FOOTER */
+    footer {
+        background-color: #90c5f0;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        color: #000;
+      }
+    footer .left,
+    footer .right {
+        flex: 1;
+        min-width: 300px;
+    }
+    .footer-logo-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .footer-logo-title img {
+        height: 50px;
+    }
+    .social-icons a {
+        margin-right: 10px;
+        font-size: 24px;
+        text-decoration: none;
+    }
+    .footer-bottom {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .footer-bottom hr {
+        border: none;
+        border-top: 1px solid black;
+        margin: 20px 0 10px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .social-icons img {
+        width: 30px;    /* Ukuran ikon kecil */
+        height: 30px;   /* Ukuran ikon kecil */
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+        transform: scale(1.1); /* Efek membesar saat hover */
+    }
+
+    .asta-marga {
+        display: flex;
+        gap: 30px;
+        margin-top: 10px;
+    }
+
+    .asta-marga ol {
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    footer p img {
+        height: 50px;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-title">
+        <img src="images/LOGO_KITS-removebg-preview.png" alt="Logo KITS">
+        <div>
+            <strong>Komunitas IT</strong><br />
+            <span style="color: grey; font-weight: bold"
+                >SMK NEGERI 1 NGLEGOK</span
+            >
+        </div>
+    </div>
+    <nav class="nav">
+      <a href="index (1).html">Home</a>
+      <a href="aktivitas.html">Aktivitas</a>
+      <a href="achivement (1).html">Achievement</a>
+      <a href="project.html" class="active">Project</a>
+    </nav>
+  </header>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="card"><img src="images/dess cover.jpg" alt="Destia Eka Rahmawati"><p>Destia Eka Rahmawati</p></div>
+    <div class="card"><img src="images/iffa cover.jpg" alt="Iffa Mastura"><p>Iffa Mastura</p></div>
+    <div class="card"><img src="images/deb cover.jpg" alt="Keyla Ira Julia"><p>Keyla Ira Julia</p></div>
+    <div class="card"><img src="images/made cover.jpg" alt="Made Riska Anisanggara"><p>Made Riska Anisanggara</p></div>
+    <div class="card"><img src="images/zahra cover.jpg" alt="Zahra Putri Asifa"><p>Zahra Putri Asifa</p></div>
+    <div class="card"><img src="images/acel cover.jpg" alt="Marchel Saktiawan"><p>Marchel Saktiawan</p></div>
+    <div class="card"><img src="images/bigis cover.jpg" alt="Bagas Normansyah"><p>Bagas Normansyah</p></div>
+    <div class="card"><img src="images/ziiby cover.jpg" alt="Mochammad Indra Sapta"><p>Mochammad Indra Sapta</p></div>
+    <div class="card"><img src="images/cicit cover.jpg" alt="Citra Kusuma Ningrum"><p>Citra Kusuma Ningrum</p></div>
+    <div class="card"><img src="images/afifah cover.jpg" alt="Afifah Salwa Nabila"><p>'Afifah Salwa Nabila</p></div>
+    <div class="card"><img src="images/sabril cover.jpg" alt="Ananda Sabril Ilmi"><p>Ananda Sabril Ilmi</p></div>
+    <div class="card"><img src="images/nona cover.jpg" alt="Nona Eka Evita Sari"><p>Nona Eka Evita Sari</p></div>
+    <div class="card"><img src="images/nisa cover.jpg" alt="Annisa Aulia Eka Puspita"><p>Annisa Aulia Eka Puspita</p></div>
+    <div class="card"><img src="images/niya cover.jpg" alt="Ayu Dyah Rachmaniya"><p>Ayu Dyah Rachmaniya</p></div>
+    <div class="card"><img src="images/mirna cover.jpg" alt="Mirna Ayu Sholihah"><p>Mirna Ayu Sholihah</p></div>
+    <div class="card"><img src="images/yusron cover.jpg" alt="Ahmad Yusron Sani"><p>Ahmad Yusron Sani</p></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+        <div class="left">
+            <div class="footer-logo-title">
+            <img src="images/LOGO_KITS-removebg-preview.png" alt="Logo KITS" />
+            <div>
+                <strong>Komunitas IT</strong><br />
+                <span style="color: grey; font-weight: bold"
+                >SMK NEGERI 1 NGLEGOK</span
+                >
+            </div>
+            </div>
+            <p><strong style="color: #004aad">Asta Marga KITS</strong></p>
+            <div class="asta-marga">
+                <ol start="1">  
+                    <li>Religius</li>
+                    <li>Mandiri</li>
+                    <li>Beretika</li>
+                    <li>Kreatif</li>
+                </ol>
+                <ol start="5"> 
+                    <li>Inovatif</li>
+                    <li>Bekerja Keras</li>
+                    <li>Bertanggung Jawab</li>
+                    <li>Bermanfaat</li>
+                </ol>
+            </div>
+        </div>
+        <div class="right">
+            <p><img src="images/maps-removebg-preview.png"> Jl. Penataran No. 1 Kel. Nglegok Kec. Nglegok Kab. Blitar</p>
+            <p><img src="images/email-removebg-preview.png">kitsangkatan.13@gmail.com</a></p>
+        <div class="social-icons">
+            <a href="https://tiktok.com" target="_blank">
+                <img src="images/tt-removebg-preview.png" alt="TikTok" />
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="images/yt-removebg-preview.png" alt="YouTube" />
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="images/insta-removebg-preview.png" alt="Instagram" />
+            </a>
+        </div>
+
+        <div class="footer-bottom">
+            <hr />
+            Copyright © 2025 Kelompok 5 | All Rights Reserved
+        </div>
+    </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.add('clicked');
+        setTimeout(() => card.classList.remove('clicked'), 300);
+      });
+    });
+  </script>
+
+</body>
+</html>

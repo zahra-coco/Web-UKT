@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Komunitas IT SMKN 1 Nglegok</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      header {
+        background-color: #90c5f0;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 3px solid #000;
+      }
+      .logo-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo-title img {
+        height: 50px;
+      }
+      .nav {
+        display: flex;
+        gap: 20px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .nav a {
+        text-decoration: none;
+        color: black;
+        border-left: 2px solid black;
+        padding-left: 10px;
+      }
+      .nav a:first-child {
+        border-left: none;
+      }
+      .nav a.active {
+        color: #004aad;
+      }
+      main {
+        padding: 20px;
+        background-image: url("home.jpg");
+        background-size: cover;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .card {
+        background-color: #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .popup-content img {
+        width: 30%;
+        margin: 5px;
+        border-radius: 8px;
+      }
+      footer {
+        background-color: #90c5f0;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        color: #000;
+      }
+      footer .left,
+      footer .right {
+        flex: 1;
+        min-width: 300px;
+      }
+      footer p img {
+        height: 30px;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+      .footer-logo-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .footer-logo-title img {
+        height: 50px;
+      }
+      .social-icons a {
+        margin-right: 10px;
+        font-size: 24px;
+        text-decoration: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 10px;
+        border-top: 1px solid black;
+        padding-top: 10px;
+      }
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .social-icons img {
+        width: 30px;    /* Ukuran ikon kecil */
+        height: 30px;   /* Ukuran ikon kecil */
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .social-icons img:hover {
+        transform: scale(1.1); /* Efek membesar saat hover */
+      }
+      .hero {
+        background-image: url("home.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 615px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        color: white;
+        text-align: center;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.4
+        ); /* transparansi hitam agar teks lebih terlihat */
+        z-index: 0;
+      }
+
+      .hero-text {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* background semi-transparan untuk teks */
+        border-radius: 10px;
+        max-width: 900px;
+        font-size: 20px;
+        line-height: 1.8;
+        font-family: "Times New Roman";
+      }
+
+      section {
+        padding: 40px 20px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease;
+      }
+      section.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .achievement {
+        background: white;
+      }
+      .achievement h3 {
+        margin-bottom: 10px;
+        font-size: 30px !important;  /* tambahkan !important untuk memaksa */
+        font-weight: bold;
+        color: black;  /* opsional agar lebih kontras */
+      }
+      .achievement h2 {
+        margin-bottom: 50px;
+        font-size: 48px !important;  /* tambahkan !important untuk memaksa */
+        font-weight: bold;
+        color: black;  /* opsional agar lebih kontras */
+      }
+      .trophies {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 35px 0;
+        flex-wrap: wrap;
+      }
+      .trophy {
+        text-align: center;
+      }
+      .trophy img {
+        height: 150px;
+      }
+      .counter {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .slider {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 35px;
+      }
+      .slide {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background: #57ACF1;
+        padding: 25px;
+        border-radius: 20px;
+      }
+      .slide.active {
+        display: flex;
+      }
+      .arrow {
+        position: absolute;
+        font-size: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #87c5ff;
+        border-radius: 50%;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .arrow.left {
+        left: 10px;
+      }
+      .arrow.right {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-title">
+        <img src="images/logo kits.png" alt="Logo KITS" />
+        <div>
+          <strong>Komunitas IT</strong><br />
+          <span style="color: grey; font-weight: bold"
+            >SMK NEGERI 1 NGLEGOK</span
+          >
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index (1).html" class="active">Home</a>
+        <a href="aktivitas.html">Aktivitas</a>
+        <a href="achivement (1).html">Achievement</a>
+        <a href="project.html">Project</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="hero-text">
+        <p>
+          KITS (Komunitas IT SMK Negeri 1 Nglegok) adalah sebuah komunitas
+          teknologi yang berdiri sejak 25 Mei 2011, atas prakarsa Bapak Very
+          Setiawan. Komunitas ini hadir sebagai wadah sekaligus jembatan bagi
+          para siswa, khususnya dari jurusan Teknik Komputer dan Jaringan (TKJ),
+          yang ingin memperdalam ilmu dan keterampilan di bidang IT. Dengan
+          semangat berbagi dan belajar bersama, KITS telah menjadi ruang
+          pengembangan potensi, inovasi, dan kreativitas siswa dalam dunia
+          teknologi informasi. Selama lebih dari satu dekade, komunitas ini
+          telah sukses membimbing dan membawa anggotanya hingga menorehkan
+          prestasi di tingkat kabupaten, provinsi, nasional, bahkan
+          internasional. Melalui berbagai kegiatan seperti pelatihan, project
+          kolaboratif, dan kompetisi, KITS terus berkomitmen untuk mencetak
+          generasi muda yang tidak hanya mahir secara teknis, tetapi juga siap
+          bersaing di era digital.
+        </p>
+      </div>
+    </div>
+
+    <section class="achievement reveal">
+      <h3>Our Success Story</h3>
+      <h2>Our Achievement</h2>
+      <div class="trophies">
+        <div class="trophy">
+          <img src="images/piala.jpg" alt="Kabupaten" />
+          <div class="counter" data-target="9">0</div>
+          <p>Kabupaten</p>
+        </div>
+        <div class="trophy">
+          <img src="images/piala.jpg" alt="Provinsi" />
+          <div class="counter" data-target="19">0</div>
+          <p>Provinsi</p>
+        </div>
+        <div class="trophy">
+          <img src="images/piala.jpg" alt="Nasional" />
+          <div class="counter" data-target="10">0</div>
+          <p>Nasional</p>
+        </div>
+        <div class="trophy">
+          <img src="images/piala.jpg" alt="Internasional" />
+          <div class="counter" data-target="1">0</div>
+          <p>Internasional</p>
+        </div>
+      </div>
+    </section>
+    <section class="slider reveal">
+      <div class="arrow left" onclick="changeSlide(-1)">&#9664;</div>
+      <div class="slide active">
+        <img src="images/pakve.jpg" alt="Pembina 1" width="250" />
+        <p>
+          Nama: Very Setiawan, S.Kom.<br />Jabatan: Pembina 1
+        </p>
+      </div>
+      <div class="slide">
+        <img src="images/ageng.jpg" alt="Pembina 2" width="250" />
+        <p>
+          Nama: Ageng Eka Permana Putra<br />Jabatan: Pembina 2
+        </p>
+      </div>
+      <div class="slide">
+        <img src="images/rojab.jpg" alt="Pembina 3" width="250" />
+        <p>
+          Nama: Muhammad Syahrur Rojab Ali Fahmi<br />Jabatan: Pembina 3
+        </p>
+      </div>
+      <div class="arrow right" onclick="changeSlide(1)">&#9654;</div>
+    </section>
+   <footer>
+      <div class="left">
+        <div class="footer-logo-title">
+          <img src="images/logo kits.png" alt="Logo KITS" />
+          <div>
+            <strong>Komunitas IT</strong><br />
+            <span style="color: grey; font-weight: bold"
+              >SMK NEGERI 1 NGLEGOK</span
+            >
+          </div>
+        </div>
+        <p><strong style="color: #004aad">Asta Marga KITS</strong></p>
+        <ol>
+          <li>Religius</li>
+          <li>Mandiri</li>
+          <li>Beretika</li>
+          <li>Kreatif</li>
+          <li>Inovatif</li>
+          <li>Bekerja Keras</li>
+          <li>Bertanggung Jawab</li>
+          <li>Bermanfaat</li>
+        </ol>
+      </div>
+      <div class="right">
+        <p><img src="images/maps-removebg-preview.png"> Jl. Penataran No. 1 Kel. Nglegok Kec. Nglegok Kab. Blitar</p>
+            <p><img src="images/email-removebg-preview.png">kitsangkatan.13@gmail.com</a></p>
+        </p>
+       <div class="social-icons">
+  <a href="https://tiktok.com" target="_blank">
+    <img src="images/tt-removebg-preview.png" alt="TikTok" />
+  </a>
+  <a href="https://youtube.com" target="_blank">
+    <img src="images/yt-removebg-preview.png" alt="YouTube" />
+  </a>
+  <a href="https://instagram.com" target="_blank">
+    <img src="images/insta-removebg-preview.png" alt="Instagram" />
+  </a>
+</div>
+
+      <div class="footer-bottom">
+        Copyright © 2025 Kelompok 5 | All Rights Reserved
+      </div>
+    </footer>
+    <script>
+      // Scroll reveal
+      window.addEventListener("scroll", () => {
+        document.querySelectorAll(".reveal").forEach((el) => {
+          const top = el.getBoundingClientRect().top;
+          if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+          }
+        });
+      });
+
+      // Counter
+      const counters = document.querySelectorAll(".counter");
+      let counterStarted = false;
+      window.addEventListener("scroll", () => {
+        const achievement = document.querySelector(".achievement");
+        const top = achievement.getBoundingClientRect().top;
+        if (top < window.innerHeight && !counterStarted) {
+          counterStarted = true;
+          counters.forEach((counter) => {
+            let start = 0;
+            const target = +counter.getAttribute("data-target");
+            const increment = target / 100;
+            const updateCounter = () => {
+              if (start < target) {
+                start += increment;
+                counter.textContent = Math.ceil(start);
+                setTimeout(updateCounter, 30);
+              } else {
+                counter.textContent = target;
+              }
+            };
+            updateCounter();
+          });
+        }
+      });
+
+      // Slider
+      let slideIndex = 0;
+      function changeSlide(n) {
+        const slides = document.querySelectorAll(".slide");
+        slides[slideIndex].classList.remove("active");
+        slideIndex = (slideIndex + n + slides.length) % slides.length;
+        slides[slideIndex].classList.add("active");
+      }
+    </script>
+  </body>
+</html>
